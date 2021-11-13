@@ -24,6 +24,7 @@ score_list.addEntry(score);
 Output :
 - Added 'Korn' with a score of 54 points.
 ```
+<br>
 
 สามารถเพิ่มคะแนนใหม่ด้วยวิธีนี้ได้เลย `addEntry(Score(ชื่อ, คะแนน));`
 จากนั้นลองพิมพ์รายการที่มีอยู่ออกมาได้เป็นตารางโดยใช้คำสั่ง `printEntry();`
@@ -44,6 +45,7 @@ Output :
  - 2  Jenny     18
 *=============================*
 ```
+<br>
 
 สามารถบันทึกข้อมูลลงไฟล์ได้โดยใช้คำสั่ง `saveFile();`
 
@@ -65,6 +67,7 @@ Output :
 *=============================*
 - Saved 2 entry(s) to 'highscore.txt' successfully.
 ```
+<br>
 
 เมื่อทดลองโหลดข้อมูลจากไฟล์ โดยใช้คำสั่ง `loadFile();` แล้วพิมพ์ข้อมูลอีกรอบ
 
@@ -82,6 +85,7 @@ Output :
  - 2  Jenny     18
 *=============================*
 ```
+<br>
 
 เมื่อโหลดแล้วก็สามารถเพิ่มข้อมูลใส่แล้วบันทึกข้อมูลอีกรอบได้เลย
 - หากชื่อซ้ำกัน แต่คะแนนน้อยกว่าคะแนนในรายการ **คะแนนจะไม่ถูกบันทึก**
@@ -106,6 +110,7 @@ score_list.saveFile();
 - Failed to add 'John' entry, found duplicate name and score.
 - Saved 3 entry(s) to 'highscore.txt' successfully.
 ```
+<br>
 
 ## Usage
 
