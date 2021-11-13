@@ -159,7 +159,7 @@ score_list.saveFile();
   </tbody>
 </table>
 
----
+<br>
 
 ### `ScoreList(std::string);`
 **Parameter**
