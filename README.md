@@ -116,12 +116,6 @@ score_list.saveFile();
 - **std::string** ชื่อ
 - **int** คะแนน
 
-<style>
-  td {
-    vertical-align : top;
-  }
-</style>
-
 <table>
   <thead>
     <tr>
