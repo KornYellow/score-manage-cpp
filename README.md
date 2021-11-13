@@ -2,7 +2,6 @@
 
 เป็นตัวช่วยในการบันทึกคะแนน สำหรับบันทึกคะแนน Highscore โดยสามารถบันทึกชื่อและคะแนนเป็นลำดับมากไปน้อย
 
-สารบัญ
 - [ScoreList](#scorelist)
   - [Examples](#examples)
   - [Usage](#usage)
@@ -11,6 +10,174 @@
     - [`ScoreList(std::string);`](#scoreliststdstring)
 
 ## Examples
+
+ทำเกมที่มีการบันทึก Highscore ได้ง่าย ๆ โดย
+
+``` cpp
+#include <iostream>
+#include "include/ScoreList.h"
+
+int main() {
+
+    ScoreList score_list("highscore.txt");
+    score_list.loadFile();
+
+    std::string user_name;
+    std::cout << "Enter name : ";
+    std::getline(std::cin, user_name);
+
+    int user_score;
+    std::cout << "Enter score : ";
+    std::cin >> user_score;
+
+    score_list.addEntry(user_name, user_score);
+
+    score_list.saveFile();
+    return 0;
+}
+```
+
+ลองรันโปรแกรมครั้งที่ 1 โดยใส่ชื่อ Korn และคะแนน 23
+
+``` console
+Output :
+- Load entry(s) failed, file or data not found.
+Enter name : Korn
+Enter score : 23
+- Added 'Korn' with a score of 23 points.
+- Saved 1 entry(s) to 'highscore.txt' successfully.
+```
+
+ลองรันโปรแกรมครั้งที่ 2 โดยใส่ชื่อ John และคะแนน 55
+
+``` console
+Output :
+- Loaded 1 entry(s) from 'highscore.txt' successfully!
+Enter name : John
+Enter score : 55
+- Added 'John' entry with a score of 55 points.
+- Saved 2 entry(s) to 'highscore.txt' successfully.
+```
+
+ลองรันโปรแกรมครั้งที่ 3 โดยใส่ชื่อ Korn และคะแนน 60
+
+``` console
+Output :
+- Loaded 2 entry(s) from 'highscore.txt' successfully!
+Enter name : Korn
+Enter score : 60
+- Updated 'Korn' with a score of 60 points.
+- Saved 2 entry(s) to 'highscore.txt' successfully.
+```
+
+ไฟล์ highscore.txt
+
+```
+Korn
+60
+John
+55
+```
+
+<br>
+
+ถ้ามี Object อื่น ก็สามารถส่ง Address ไปได้
+
+``` cpp
+#include <iostream>
+
+#include "include/ScoreList.h"
+
+class Game {
+private:
+    ScoreList* score_list;
+public:
+    Game(ScoreList* score_list) {
+
+        this->score_list = score_list;
+    }
+    void getScore() {
+
+        std::string user_name;
+        std::cout << "Enter name : ";
+        std::getline(std::cin, user_name);
+
+        int user_score;
+        std::cout << "Enter score : ";
+        std::cin >> user_score;
+
+        score_list->addEntry(user_name, user_score);
+    }
+};
+
+int main() {
+
+    ScoreList score_list("highscore.txt");
+    score_list.loadFile();
+
+    Game game(&score_list);
+    game.getScore();
+
+    score_list.saveFile();
+    return 0;
+}
+```
+
+``` console
+Output :
+- Load entry(s) failed, file or data not found.
+Enter name : Korn
+Enter score : 23
+- Added 'Korn' with a score of 23 points.
+- Saved 1 entry(s) to 'highscore.txt' successfully.
+```
+
+<br>
+
+หากเพิ่มข้อมูลหลายอย่าง คะแนนต่างกัน ระบบจะจัดการให้เอง
+
+``` cpp
+#include <iostream>
+
+#include "include/ScoreList.h"
+
+int main() {
+
+    ScoreList score_list("highscore.txt");
+    score_list.loadFile();
+
+    score_list.addEntry("Korn", 32);
+    score_list.addEntry("Bomb", 22);
+    score_list.addEntry("Sunny", 95);
+    score_list.addEntry("Dan", 7);
+    score_list.addEntry("Bomb", 65);
+
+    score_list.printEntry();
+
+    score_list.saveFile();
+    return 0;
+}
+```
+
+``` console
+Output :
+- Load entry(s) failed, file or data not found.
+- Added 'Korn' with a score of 32 points.
+- Added 'Bomb' with a score of 22 points.
+- Added 'Sunny' entry with a score of 95 points.
+- Added 'Dan' with a score of 7 points.
+- Updated 'Bomb' with a score of 65 points.
+- Failed to add 'Dan' entry, found duplicate name and score.
+*== highscore.txt ============*
+ - 1  Sunny     95
+ - 2  Bomb      65
+ - 3  Korn      32
+ - 4  Dan       7
+*=============================*
+- Saved 4 entry(s) to 'highscore.txt' successfully.
+```
+
+## Usage
 
 สร้าง Object `ScoreList` โดยใส่ชื่อไฟล์ไปด้วยสำหรับบันทึกข้อมูลลงไฟล์ สามารถลองเพิ่มข้อมูลคะแนนลงไป โดยสร้าง Object `Score` แล้วใส่ชื่อ / ใส่คะแนน
 
@@ -110,8 +277,6 @@ score_list.saveFile();
 - Failed to add 'John' entry, found duplicate name and score.
 - Saved 3 entry(s) to 'highscore.txt' successfully.
 ```
-
-## Usage
 
 ## Methods
 
