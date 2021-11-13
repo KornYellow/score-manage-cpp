@@ -8,20 +8,7 @@
   - [Usage](#usage)
   - [Methods](#methods)
     - [`Score(std::string, int);`](#scorestdstring-int)
-      - [`void setName(std::string);`](#void-setnamestdstring)
-      - [`std::string Score::getName();`](#stdstring-scoregetname)
-      - [`void setScore(int);`](#void-setscoreint)
-      - [`int getScore();`](#int-getscore)
-    - [`ScoreList(std::string)`](#scoreliststdstring)
-      - [`bool loadFile()`](#bool-loadfile)
-      - [`void saveFile()`](#void-savefile)
-      - [`bool addEntry(Score player)` <br> `bool addEntry(std::string, int)`](#bool-addentryscore-player--bool-addentrystdstring-int)
-      - [`void printEntry(int)`](#void-printentryint)
-      - [`std::vector <Score> ScoreList::get();`](#stdvector-score-scorelistget)
-      - [`void set(std::vector <Score>);`](#void-setstdvector-score)
-      - [`int clear();`](#int-clear)
-      - [`void removeEntry(int)`](#void-removeentryint)
-      - [`Score getEntry(int)`](#score-getentryint)
+    - [`ScoreList(std::string);`](#scoreliststdstring)
 
 ## Examples
 
@@ -125,73 +112,165 @@ score_list.saveFile();
 ## Methods
 
 ### `Score(std::string, int);`
+**Parameter**
+- **std::string** ชื่อ
+- **int** คะแนน
 
-#### `void setName(std::string);`
-เปลี่ยนชื่อใหม่ให้กับ Object
-- **Parameter**
-  - *std::string* ชื่อที่ต้องการเปลี่ยน
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>void setName(std::string);</code></td>
+      <td>
+        เปลี่ยนชื่อใหม่ให้กับ Object<br>
+        <b>Parameter</b>
+        <ul>
+          <li><b>std::string</b> ชื่อที่ต้องการเปลี่ยน</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>std::string Score::getName();</code></td>
+      <td>
+        ดึงชื่อจาก Object
+      </td>
+    </tr>
+    <tr>
+      <td><code>void setScore(int);</code></td>
+      <td>
+        เปลี่ยนคะแนนใหม่ให้กับ Object<br>
+        <b>Parameter</b>
+        <ul>
+          <li><b>int</b> คะแนนที่ต้องการเปลี่ยน</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>int getScore();</code></td>
+      <td>
+        ดึงคะแนนจาก Object
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-#### `std::string Score::getName();`
-ดึงชื่อจาก Object
+### `ScoreList(std::string);`
+**Parameter**
+- **std::string** ชื่อไฟล์ที่ต้องการบันทึก / โหลด
 
-#### `void setScore(int);`
-เปลี่ยนคะแนนใหม่ให้กับ Object
-- **Parameter**
-  - *int* คะแนนที่ต้องการเปลี่ยน
-
-#### `int getScore();`
-ดึงคะแนนจาก Object
-
-### `ScoreList(std::string)`
-- **Parameter**
-  - *std::string* ชื่อไฟล์ที่ต้องการบันทึก / โหลด
-
-#### `bool loadFile()`
-สำหรับโหลดข้อมูลจากไฟล์เก็บไว้ในรายการ
-- **Return** 
-  - *bool* สำเร็จหรือไม่
-
-#### `void saveFile()`
-สำหรับบันทึกข้อมูลจากรายการลงในไฟล์
-
-#### `bool addEntry(Score player)` <br> `bool addEntry(std::string, int)`
-สำหรับเพิ่มข้อมูลคะแนนลงในรายการ โดยเรียงจากมากไปน้อย
-- **Parameter**
-  - *Score* Object คะแนน
-- **Parameter**
-  - *std::string* ชื่อ
-  - *int* คะแนน 
-- **Return** 
-  - *bool* สำเร็จหรือไม่
-
-#### `void printEntry(int)`
-พิมพ์ข้อมูลในรายการออกมาเป็นตาราง
-- **Parameter**
-  - *int* จำนวนข้อมูลที่ต้องการพิมพ์ (default : 0 พิมพ์ทั้งหมด)
-
-#### `std::vector <Score> ScoreList::get();`
-สำหรับดึงค่าข้อมูลรายการ
-- **Return**
-  - *std::vector \<Score\>*
-
-#### `void set(std::vector <Score>);`
-สำหรับเซ็ตค่ารายการ
-- **Parameter**
-  - *std::vector \<Score\>*
-
-#### `int clear();`
-ล้างข้อมูลในรายการทั้งหมด
-- **Return**
-  - *int* จำนวนรายการที่ลบ
-
-#### `void removeEntry(int)`
-ลบข้อมูลที่ตำแหน่งหนึ่งของรายการ
-- **Parameter**
-  - *int* ลำดับข้อมูลที่ต้องการลบ
-
-#### `Score getEntry(int)`
-ดึงข้อมูลจากในรายการที่ต้องการโดยใส่ลำดับที่ต้องการ
-- **Parameter**
-  - *int* ลำดับข้อมูลที่ต้องการ
-- **Return**
-  - *Score*
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>bool loadFile();</code></td>
+      <td>
+        สำหรับโหลดข้อมูลจากไฟล์เก็บไว้ในรายการ<br>
+        <b>Return</b>
+        <ul>
+          <li><b>bool</b> สำเร็จหรือไม่</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>void saveFile();</code></td>
+      <td>
+        สำหรับบันทึกข้อมูลจากรายการลงในไฟล์
+      </td>
+    </tr>
+    <tr>
+      <td><code>bool addEntry(Score player);</code><br>
+      <code>bool addEntry(std::string, int);</code>
+      </td>
+      <td>
+        สำหรับเพิ่มข้อมูลคะแนนลงในรายการ โดยเรียงจากมากไปน้อย<br>
+        <b>Parameter</b>
+        <ul>
+          <li><b>Score</b> Object คะแนน</li>
+        </ul>
+        <b>Parameter</b>
+        <ul>
+          <li><b>std::string</b> ชื่อที่ต้องการบันทึก</li>
+          <li><b>int</b> คะแนนที่ต้องการบันทึก</li>
+        </ul>
+        <b>Return</b>
+        <ul>
+          <li><b>bool</b> สำเร็จหรือไม่</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>void printEntry(int = 0);</code></td>
+      <td>
+        พิมพ์ข้อมูลออกมาเป็นตาราง<br>
+        <b>Parameter</b>
+        <ul>
+          <li><b>int</b> จำนวนข้อมูลที่ต้องการพิมพ์ (Default : 0 พิมพ์ทั้งหมด)</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>std::vector &lt;Score&gt; get();</code></td>
+      <td>
+        สำหรับดึงค่าข้อมูลรายการ<br>
+        <b>Return</b>
+        <ul>
+          <li><b>std::vector &lt;Score&gt;</b></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>void set(std::vector &lt;Score&gt;);</code></td>
+      <td>
+        สำหรับเซ็ตค่ารายการ<br>
+        <b>Parameter</b>
+        <ul>
+          <li><b>std::vector &lt;Score&gt;</b></b></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>int clear();</code></td>
+      <td>
+        ล้างข้อมูลในรายการทั้งหมด<br>
+        <b>Return</b>
+        <ul>
+          <li><b>int</b> จำนวนรายการที่ลบ</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>void removeEntry(int)</code></td>
+      <td>
+        ลบข้อมูลที่ตำแหน่งหนึ่งของรายการ<br>
+        <b>Parameter</b>
+        <ul>
+          <li><b>int</b> ลำดับข้อมูลที่ต้องการลบ</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>Score getEntry(int)</code></td>
+      <td>
+        ดึงข้อมูลจากในรายการที่ต้องการโดยใส่ลำดับที่ต้องการ<br>
+        <b>Parameter</b>
+        <ul>
+          <li><b>int</b> ลำดับข้อมูลที่ต้องการ</li>
+        </ul>
+        <b>Return</b>
+        <ul>
+          <li><b>Score</b></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
