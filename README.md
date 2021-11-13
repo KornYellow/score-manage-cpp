@@ -159,6 +159,8 @@ score_list.saveFile();
   </tbody>
 </table>
 
+---
+
 ### `ScoreList(std::string);`
 **Parameter**
 - **std::string** ชื่อไฟล์ที่ต้องการบันทึก / โหลด
