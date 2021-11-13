@@ -110,7 +110,6 @@ score_list.saveFile();
 - Failed to add 'John' entry, found duplicate name and score.
 - Saved 3 entry(s) to 'highscore.txt' successfully.
 ```
-<br>
 
 ## Usage
 
