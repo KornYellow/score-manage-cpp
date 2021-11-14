@@ -151,6 +151,7 @@ int main() {
     score_list.addEntry("Sunny", 95);
     score_list.addEntry("Dan", 7);
     score_list.addEntry("Bomb", 65);
+    score_list.addEntry("Dan", 7);
 
     score_list.printEntry();
 
