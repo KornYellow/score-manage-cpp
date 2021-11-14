@@ -81,7 +81,7 @@ John
 
 <br>
 
-ถ้ามี Object อื่น ก็สามารถส่ง Address ไปได้
+ถ้ามี Object อื่น ก็สามารถส่ง Address ของ Object `ScoreList` ไปได้
 
 ``` cpp
 #include <iostream>
@@ -106,7 +106,7 @@ public:
         std::cout << "Enter score : ";
         std::cin >> user_score;
 
-        score_list->addEntry(user_name, user_score);
+        this->score_list->addEntry(user_name, user_score);
     }
 };
 
