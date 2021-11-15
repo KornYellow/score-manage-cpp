@@ -5,6 +5,8 @@
     เขียนเมื่อ : 13-11-2021
 */
 
+#pragma once
+
 #define CLEAR   "\033[0m"
 #define ERROR   "\033[1;31m"
 #define SUCCESS "\033[1;32m"

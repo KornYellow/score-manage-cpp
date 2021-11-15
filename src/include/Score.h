@@ -5,6 +5,8 @@
     เขียนเมื่อ : 13-11-2021
 */
 
+#pragma once
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
