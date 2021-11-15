@@ -39,15 +39,15 @@ public:
     void saveFile();
     
     bool addEntry(Score player);
-    bool addEntry(std::string, int score);
-    void removeEntry(size_t index);
-    Score getEntry(size_t index);
+    bool addEntry(std::string, unsigned long score);
+    void removeEntry(unsigned long index);
+    Score getEntry(unsigned long index);
 
-    void printEntry(u_int max_entry = 0);
+    void printEntry(unsigned long max_entry = 0);
     
     std::string getFileName();
 
     std::vector <Score> get();
     void set(std::vector <Score> score_list);
-    size_t clear();
+    unsigned long clear();
 };

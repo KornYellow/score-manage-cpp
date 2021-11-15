@@ -20,15 +20,15 @@ class Score {
 private:
 
     std::string name;
-    int score;
+    unsigned long score;
     
 public:
 
-    Score(std::string name, int score);
+    Score(std::string name, unsigned long score);
 
     void setName(std::string name);
     std::string getName();
 
-    void setScore(int score);
-    int getScore();
+    void setScore(unsigned long score);
+    unsigned long getScore();
 };

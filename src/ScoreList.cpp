@@ -31,7 +31,7 @@ bool ScoreList::loadFile() {
 
             read_score = read_string;
 
-            int read_score_int;
+            unsigned long read_score_int;
             std::stringstream ss;
             ss << read_score;
             ss >> read_score_int;
@@ -93,7 +93,7 @@ bool ScoreList::addEntry(Score player) {
  * 
  * @return bool สำเร็จหรือไม่
  */
-bool ScoreList::addEntry(std::string name, int score) {
+bool ScoreList::addEntry(std::string name, unsigned long score) {
 
     return this->addScoreEntry(Score(name, score));
 }
@@ -151,7 +151,7 @@ bool ScoreList::addScoreEntry(Score player) {
  * 
  * @param จำนวนข้อมูลที่ต้องการพิมพ์ (default : 0 พิมพ์ทั้งหมด)
  */ 
-void ScoreList::printEntry(u_int max_entry) {
+void ScoreList::printEntry(unsigned long max_entry) {
 
     if(!this->score_list.size()) {
 
@@ -159,16 +159,16 @@ void ScoreList::printEntry(u_int max_entry) {
         return;
     }
 
-    u_int longest_name_size = 0;
-    u_int longest_score_size = 0;
-    u_int longest_number_size = std::to_string(this->score_list.size()).size();
+    unsigned long longest_name_size = 0;
+    unsigned long longest_score_size = 0;
+    unsigned long longest_number_size = std::to_string(this->score_list.size()).size();
     for(auto entry : this->score_list) {
 
         if(entry.getName().size() > longest_name_size) longest_name_size = entry.getName().size();
         if(std::to_string(entry.getScore()).size() > longest_score_size) longest_score_size = std::to_string(entry.getScore()).size();
     }
 
-    for(u_int i = 0; i < std::max(4 + longest_name_size + 5 + longest_score_size - (int)this->file_name.size(), 4 + longest_name_size + 5 + longest_score_size); i++) {
+    for(unsigned long i = 0; i < std::max(4 + longest_name_size + 5 + longest_score_size - (int)this->file_name.size(), 4 + longest_name_size + 5 + longest_score_size); i++) {
         if(i == 3) std::cout << " " << this->file_name << " ";
         if(i == 0 || i == std::max(4 + longest_name_size + 5 + longest_score_size - (int)this->file_name.size(), 4 + longest_name_size + 5 + longest_score_size) - 1) std::cout << "*";
         else std::cout << "=";
@@ -184,10 +184,10 @@ void ScoreList::printEntry(u_int max_entry) {
         std::cout << " ";
 
         std::cout << std::distance(this->score_list.begin(), entry) + 1;
-        for(u_int i = std::to_string(std::distance(this->score_list.begin(), entry) + 1).size(); i < longest_number_size + 2; i++) std::cout << " ";
+        for(unsigned long i = std::to_string(std::distance(this->score_list.begin(), entry) + 1).size(); i < longest_number_size + 2; i++) std::cout << " ";
 
         std::cout << entry->getName();
-        for(u_int i = entry->getName().size(); i < longest_name_size + 5; i++) std::cout << " ";
+        for(unsigned long i = entry->getName().size(); i < longest_name_size + 5; i++) std::cout << " ";
 
         std::cout << entry->getScore();
         std::cout << std::endl;
@@ -226,11 +226,11 @@ void ScoreList::set(std::vector <Score> score_list) {
  * 
  * @return int จำนวนรายการที่ลบ
  */ 
-size_t ScoreList::clear() {
+unsigned long ScoreList::clear() {
 
     std::cout << ERROR << "- Removed " << this->score_list.size() << " entry(s)." << CLEAR << std::endl;
 
-    size_t removed_entry = this->score_list.size();
+    unsigned long removed_entry = this->score_list.size();
 
     this->score_list.clear();
 
@@ -242,7 +242,7 @@ size_t ScoreList::clear() {
  * 
  * @param int ลำดับข้อมูลที่ต้องการลบ
  */
-void ScoreList::removeEntry(size_t index) {
+void ScoreList::removeEntry(unsigned long index) {
 
     if(!this->score_list.size()) return;
 
@@ -262,7 +262,7 @@ void ScoreList::removeEntry(size_t index) {
  * 
  * @return Score
  */
-Score ScoreList::getEntry(size_t index) {
+Score ScoreList::getEntry(unsigned long index) {
 
     if(index >= this->score_list.size()) {
         

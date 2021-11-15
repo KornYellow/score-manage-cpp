@@ -1,6 +1,6 @@
 #include "include/Score.h"
 
-Score::Score(std::string name, int score) {
+Score::Score(std::string name, unsigned long score) {
 
     this->name = name;
     this->score = score;
@@ -31,7 +31,7 @@ std::string Score::getName() {
  * 
  * @param int
  */
-void Score::setScore(int score) {
+void Score::setScore(unsigned long score) {
 
     this->score = score;
 }
@@ -41,7 +41,7 @@ void Score::setScore(int score) {
  * 
  * @return int
  */
-int Score::getScore() {
+unsigned long Score::getScore() {
 
     return this->score;
 }
