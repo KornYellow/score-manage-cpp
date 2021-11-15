@@ -444,5 +444,15 @@ score_list.saveFile();
         </ul>
       </td>
     </tr>
+    <tr>
+      <td><code>Score getFileName()</code></td>
+      <td>
+        ดึงชื่อไฟล์ที่บันทึก<br>
+        <b>Return</b>
+        <ul>
+          <li><b>std::string</b> ชื่อไฟล์ที่บันทึก</li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
