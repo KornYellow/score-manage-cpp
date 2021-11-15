@@ -272,3 +272,13 @@ Score ScoreList::getEntry(unsigned long index) {
 
     return this->score_list.at(index);
 }
+
+/**
+ * ดึงชื่อไฟล์ที่บันทึก
+ * 
+ * @return string ชื่อไฟล์ที่บันทึก
+ */
+std::string ScoreList::getFileName() {
+
+    return this->file_name;
+}
