@@ -175,21 +175,21 @@ void ScoreList::printEntry(unsigned long max_entry) {
     }
     std::cout << std::endl;
 
-    for(auto entry = this->score_list.begin(); entry < this->score_list.end(); entry++) {
+    for(unsigned long entry = 0; entry < this->score_list.size(); entry++) {
 
-        if(std::distance(this->score_list.begin(), entry) >= max_entry && max_entry != 0) break;
+        if(entry >= max_entry && max_entry != 0) break;
 
         std::cout << " ";
         std::cout << "-";
         std::cout << " ";
 
-        std::cout << std::distance(this->score_list.begin(), entry) + 1;
-        for(unsigned long i = std::to_string(std::distance(this->score_list.begin(), entry) + 1).size(); i < longest_number_size + 2; i++) std::cout << " ";
+        std::cout << entry + 1;
+        for(unsigned long i = std::to_string(entry + 1).size(); i < longest_number_size + 2; i++) std::cout << " ";
 
-        std::cout << entry->getName();
-        for(unsigned long i = entry->getName().size(); i < longest_name_size + 5; i++) std::cout << " ";
+        std::cout << this->score_list.at(entry).getName();
+        for(unsigned long i = this->score_list.at(entry).getName().size(); i < longest_name_size + 5; i++) std::cout << " ";
 
-        std::cout << entry->getScore();
+        std::cout << this->score_list.at(entry).getScore();
         std::cout << std::endl;
     }
 
