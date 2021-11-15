@@ -193,8 +193,8 @@ void ScoreList::printEntry(unsigned long max_entry) {
         std::cout << std::endl;
     }
 
-    for(u_int i = 0; i < std::max(4 + longest_name_size + 5 + longest_score_size - (int)this->file_name.size(), 4 + longest_name_size + 5 + longest_score_size); i++) {
-        if(i == 3) for(u_int i = 0; i < this->file_name.size() + 2; i++) std::cout << "=";
+    for(unsigned long i = 0; i < std::max(4 + longest_name_size + 5 + longest_score_size - (int)this->file_name.size(), 4 + longest_name_size + 5 + longest_score_size); i++) {
+        if(i == 3) for(unsigned long i = 0; i < this->file_name.size() + 2; i++) std::cout << "=";
         if(i == 0 || i == std::max(4 + longest_name_size + 5 + longest_score_size - (int)this->file_name.size(), 4 + longest_name_size + 5 + longest_score_size) - 1) std::cout << "*";
         else std::cout << "=";
     }
