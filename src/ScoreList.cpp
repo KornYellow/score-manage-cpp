@@ -1,4 +1,4 @@
-#include "include/ScoreList.h"
+#include "ScoreList.h"
 
 ScoreList::ScoreList(std::string file_name) {
 

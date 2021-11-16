@@ -1,4 +1,4 @@
-#include "include/Score.h"
+#include "Score.h"
 
 Score::Score(std::string name, unsigned long score) {
 
