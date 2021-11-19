@@ -15,7 +15,7 @@
 
 ``` cpp
 #include <iostream>
-#include "include/ScoreList.h"
+#include "ScoreList.h"
 
 int main() {
 
@@ -86,7 +86,7 @@ John
 ``` cpp
 #include <iostream>
 
-#include "include/ScoreList.h"
+#include "ScoreList.h"
 
 class Game {
 private:
@@ -139,7 +139,7 @@ Enter score : 23
 ``` cpp
 #include <iostream>
 
-#include "include/ScoreList.h"
+#include "ScoreList.h"
 
 int main() {
 
