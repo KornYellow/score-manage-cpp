@@ -248,8 +248,8 @@ void ScoreList::removeEntry(unsigned long index) {
 
     if(index >= this->score_list.size()) {
         
-        std::cout << ERROR << "- Error, trying to remove an entry that didn't exists!" << CLEAR << std::endl;
-        throw "- Error : Trying to reach an remove that didn't exists!";
+        std::cout << ERROR << "- Error, trying to remove an entry that doesn't exists!" << CLEAR << std::endl;
+        throw "- Error : Trying to reach and remove an entry that doesn't exists!";
     }
 
     this->score_list.erase(this->score_list.begin() + index);
@@ -266,8 +266,8 @@ Score ScoreList::getEntry(unsigned long index) {
 
     if(index >= this->score_list.size()) {
         
-        std::cout << ERROR << "- Error, trying to reach an entry that didn't exists!" << CLEAR << std::endl;
-        throw "- Error : Trying to reach an entry that didn't exists!";
+        std::cout << ERROR << "- Error, trying to reach an entry that doesn't exists!" << CLEAR << std::endl;
+        throw "- Error : Trying to reach an entry that doesn't exists!";
     }
 
     return this->score_list.at(index);
