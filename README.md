@@ -1,6 +1,6 @@
 # ScoreList
 
-เป็นตัวช่วยในการบันทึกคะแนน สำหรับบันทึกคะแนน Highscore โดยสามารถบันทึกชื่อและคะแนนเป็นลำดับมากไปน้อย
+A library to help you save high score by sorting high to low score
 
 - [ScoreList](#scorelist)
   - [Examples](#examples)
@@ -11,7 +11,7 @@
 
 ## Examples
 
-ทำเกมที่มีการบันทึก Highscore ได้ง่าย ๆ โดย
+Making game that easily save high score by
 
 ``` cpp
 #include <iostream>
@@ -37,7 +37,7 @@ int main() {
 }
 ```
 
-ลองรันโปรแกรมครั้งที่ 1 โดยใส่ชื่อ Korn และคะแนน 23
+Test 1: by saving Korn and score 23
 
 ``` console
 Output :
@@ -48,7 +48,7 @@ Enter score : 23
 - Saved 1 entry(s) to 'highscore.txt' successfully.
 ```
 
-ลองรันโปรแกรมครั้งที่ 2 โดยใส่ชื่อ John และคะแนน 55
+Test 2: by saving John and score 55
 
 ``` console
 Output :
@@ -59,7 +59,7 @@ Enter score : 55
 - Saved 2 entry(s) to 'highscore.txt' successfully.
 ```
 
-ลองรันโปรแกรมครั้งที่ 3 โดยใส่ชื่อ Korn และคะแนน 60
+Test 3: by saving Korn and score 60
 
 ``` console
 Output :
@@ -70,7 +70,7 @@ Enter score : 60
 - Saved 2 entry(s) to 'highscore.txt' successfully.
 ```
 
-ไฟล์ highscore.txt
+highscore.txt
 
 ```
 Korn
@@ -81,7 +81,7 @@ John
 
 <br>
 
-ถ้ามี Object อื่น ก็สามารถส่ง Address ของ Object `ScoreList` ไปได้
+If you have other object you can send pointer of `ScoreList` to that object
 
 ``` cpp
 #include <iostream>
@@ -134,7 +134,7 @@ Enter score : 23
 
 <br>
 
-หากเพิ่มข้อมูลหลายอย่าง คะแนนต่างกัน ระบบจะจัดการให้เอง
+If you saved different score or name the system will work it all out
 
 ``` cpp
 #include <iostream>
@@ -180,7 +180,7 @@ Output :
 
 ## Usage
 
-สร้าง Object `ScoreList` โดยใส่ชื่อไฟล์ไปด้วยสำหรับบันทึกข้อมูลลงไฟล์ สามารถลองเพิ่มข้อมูลคะแนนลงไป โดยสร้าง Object `Score` แล้วใส่ชื่อ / ใส่คะแนน
+Make an object `ScoreList` and put file name for high score in constructor and you can try to make an object `Score` with name and score in the constructor 
 
 ``` cpp
 ScoreList score_list("highscore.txt");
@@ -194,8 +194,8 @@ Output :
 ```
 <br>
 
-สามารถเพิ่มคะแนนใหม่ด้วยวิธีนี้ได้เลย `addEntry(Score(ชื่อ, คะแนน));`
-จากนั้นลองพิมพ์รายการที่มีอยู่ออกมาได้เป็นตารางโดยใช้คำสั่ง `printEntry();`
+put the score in using `addEntry(Score(ชื่อ, คะแนน));`
+You can print the entries out by using `printEntry();`
 
 ``` cpp
 ScoreList score_list("highscore.txt");
@@ -215,7 +215,7 @@ Output :
 ```
 <br>
 
-สามารถบันทึกข้อมูลลงไฟล์ได้โดยใช้คำสั่ง `saveFile();`
+You must use `saveFile();` to save the score to a file
 
 ``` cpp
 ScoreList score_list("highscore.txt");
@@ -237,7 +237,7 @@ Output :
 ```
 <br>
 
-เมื่อทดลองโหลดข้อมูลจากไฟล์ โดยใช้คำสั่ง `loadFile();` แล้วพิมพ์ข้อมูลอีกรอบ
+and use `loadFile();` to load your saved file and let's try to print the entries again
 
 ``` cpp
 ScoreList score_list("highscore.txt");
@@ -255,10 +255,10 @@ Output :
 ```
 <br>
 
-เมื่อโหลดแล้วก็สามารถเพิ่มข้อมูลใส่แล้วบันทึกข้อมูลอีกรอบได้เลย
-- หากชื่อซ้ำกัน แต่คะแนนน้อยกว่าคะแนนในรายการ **คะแนนจะไม่ถูกบันทึก**
-- หากชื่อซ้ำกัน แต่คะแนนมากกว่าคะแนนในรายการ **คะแนนจะถูกอัพเดต**
-- หากชื่อซ้ำกัน คะแนนซ้ำกัน **จะไม่สามารถเพิ่มข้อมูลลงในรายการซ้ำได้**
+When the data is loaded you can add more entry as you like 
+- If added name is the same but the score is less than before **the new score will not be save**
+- If added name is the same but the score is more than before **the new score will be save**
+- If added name is the same and the score is the same **the process will be ignored**
 
 ``` cpp
 ScoreList score_list("highscore.txt");
@@ -283,8 +283,8 @@ score_list.saveFile();
 
 ### `Score(std::string, int);`
 **Parameter**
-- **std::string** ชื่อ
-- **int** คะแนน
+- **std::string** name
+- **int** score
 
 <table>
   <thead>
@@ -297,33 +297,33 @@ score_list.saveFile();
     <tr>
       <td><code>void setName(std::string);</code></td>
       <td>
-        เปลี่ยนชื่อใหม่ให้กับ Object<br>
+        change a name in object<br>
         <b>Parameter</b>
         <ul>
-          <li><b>std::string</b> ชื่อที่ต้องการเปลี่ยน</li>
+          <li><b>std::string</b> name to change</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><code>std::string Score::getName();</code></td>
       <td>
-        ดึงชื่อจาก Object
+        get name from an object
       </td>
     </tr>
     <tr>
       <td><code>void setScore(int);</code></td>
       <td>
-        เปลี่ยนคะแนนใหม่ให้กับ Object<br>
+        change a score in object<br>
         <b>Parameter</b>
         <ul>
-          <li><b>int</b> คะแนนที่ต้องการเปลี่ยน</li>
+          <li><b>int</b> score to changeli>
         </ul>
       </td>
     </tr>
     <tr>
       <td><code>int getScore();</code></td>
       <td>
-        ดึงคะแนนจาก Object
+        get score from an object
       </td>
     </tr>
   </tbody>
@@ -333,7 +333,7 @@ score_list.saveFile();
 
 ### `ScoreList(std::string);`
 **Parameter**
-- **std::string** ชื่อไฟล์ที่ต้องการบันทึก / โหลด
+- **std::string** file name to save / load
 
 <table>
   <thead>
@@ -346,17 +346,17 @@ score_list.saveFile();
     <tr>
       <td><code>bool loadFile();</code></td>
       <td>
-        สำหรับโหลดข้อมูลจากไฟล์เก็บไว้ในรายการ<br>
+        for loading data in an object<br>
         <b>Return</b>
         <ul>
-          <li><b>bool</b> สำเร็จหรือไม่</li>
+          <li><b>bool</b> is it success?</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><code>void saveFile();</code></td>
       <td>
-        สำหรับบันทึกข้อมูลจากรายการลงในไฟล์
+        for saving data in an object
       </td>
     </tr>
     <tr>
@@ -364,36 +364,36 @@ score_list.saveFile();
       <code>bool addEntry(std::string, int);</code>
       </td>
       <td>
-        สำหรับเพิ่มข้อมูลคะแนนลงในรายการ โดยเรียงจากมากไปน้อย<br>
+        for adding new score to an object sorting high to low<br>
         <b>Parameter</b>
         <ul>
-          <li><b>Score</b> Object คะแนน</li>
+          <li><b>Score</b> score object</li>
         </ul>
         <b>Parameter</b>
         <ul>
-          <li><b>std::string</b> ชื่อที่ต้องการบันทึก</li>
-          <li><b>int</b> คะแนนที่ต้องการบันทึก</li>
+          <li><b>std::string</b> name to save</li>
+          <li><b>int</b> score to save</li>
         </ul>
         <b>Return</b>
         <ul>
-          <li><b>bool</b> สำเร็จหรือไม่</li>
+          <li><b>bool</b> is it success?</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><code>void printEntry(int = 0);</code></td>
       <td>
-        พิมพ์ข้อมูลออกมาเป็นตาราง<br>
+        print out entries<br>
         <b>Parameter</b>
         <ul>
-          <li><b>int</b> จำนวนข้อมูลที่ต้องการพิมพ์ (Default : 0 พิมพ์ทั้งหมด)</li>
+          <li><b>int</b> entries to print (Default : 0 all)</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><code>std::vector &lt;Score&gt; get();</code></td>
       <td>
-        สำหรับดึงค่าข้อมูลรายการ<br>
+        get score entries from an object<br>
         <b>Return</b>
         <ul>
           <li><b>std::vector &lt;Score&gt;</b></li>
@@ -403,7 +403,7 @@ score_list.saveFile();
     <tr>
       <td><code>void set(std::vector &lt;Score&gt;);</code></td>
       <td>
-        สำหรับเซ็ตค่ารายการ<br>
+        set score entries in an object<br>
         <b>Parameter</b>
         <ul>
           <li><b>std::vector &lt;Score&gt;</b></b></li>
@@ -413,30 +413,30 @@ score_list.saveFile();
     <tr>
       <td><code>int clear();</code></td>
       <td>
-        ล้างข้อมูลในรายการทั้งหมด<br>
+        clear all entries in an object<br>
         <b>Return</b>
         <ul>
-          <li><b>int</b> จำนวนรายการที่ลบ</li>
+          <li><b>int</b> deleted entries</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><code>void removeEntry(int)</code></td>
       <td>
-        ลบข้อมูลที่ตำแหน่งหนึ่งของรายการ<br>
+        delete an entry at an index<br>
         <b>Parameter</b>
         <ul>
-          <li><b>int</b> ลำดับข้อมูลที่ต้องการลบ</li>
+          <li><b>int</b> index of entries</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><code>Score getEntry(int)</code></td>
       <td>
-        ดึงข้อมูลจากในรายการที่ต้องการโดยใส่ลำดับที่ต้องการ<br>
+        get an entry at index<br>
         <b>Parameter</b>
         <ul>
-          <li><b>int</b> ลำดับข้อมูลที่ต้องการ</li>
+          <li><b>int</b> index of entries</li>
         </ul>
         <b>Return</b>
         <ul>
@@ -447,10 +447,10 @@ score_list.saveFile();
     <tr>
       <td><code>Score getFileName()</code></td>
       <td>
-        ดึงชื่อไฟล์ที่บันทึก<br>
+        get file name<br>
         <b>Return</b>
         <ul>
-          <li><b>std::string</b> ชื่อไฟล์ที่บันทึก</li>
+          <li><b>std::string</b> file name</li>
         </ul>
       </td>
     </tr>
