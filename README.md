@@ -194,7 +194,7 @@ Output :
 ```
 <br>
 
-put the score in using `addEntry(Score(ชื่อ, คะแนน));`
+put the score in using `addEntry(Score(name, score));`
 You can print the entries out by using `printEntry();`
 
 ``` cpp
